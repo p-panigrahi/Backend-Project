@@ -46,16 +46,19 @@ const user_Model = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
 // Encrypt the User Password using bcrypt
 user_Model.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = bcrypt.hash(this.password, 10);
   next();
 });
+
 // In this code we are comparing our user password to encrypt password
 user_Model.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
+
 // In this code We are creating JWT Token Like Access Toke And Refresh Token
 user_Model.methods.generateAccessToken = function () {
   return jwt.sign(
