@@ -1,7 +1,7 @@
 // Note - That is the Profesonal Way to Connect Data Base 
 // Note - When You are Connect to The Data Base then You can Use Some Point Like 
-        . Always Wapp inside Try and Catch 
-        . And Use Async and Await fn 
+        // . Always Wapp inside Try and Catch 
+        // . And Use Async and Await fn 
 
 import mongoose from "mongoose";
 import { DB_Name } from "../constants.js";
